@@ -8,7 +8,7 @@
 package routers
 
 import (
-	//"hello/controllers"
+	"hello/controllers"
 
 	"github.com/astaxie/beego"
 )
@@ -16,4 +16,5 @@ import (
 func init() {
 	ns := beego.NewNamespace("/v1")
 	beego.AddNamespace(ns)
+	beego.Get("/name", &controllers.GoodsController{}, "get:Get")
 }
