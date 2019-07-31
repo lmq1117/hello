@@ -16,5 +16,5 @@ import (
 func init() {
 	ns := beego.NewNamespace("/v1")
 	beego.AddNamespace(ns)
-	beego.Router("/name", &GoodsController{}, "get:Get")
+	beego.Router("/name", &controllers.GoodsController{}, "get:Get")
 }
