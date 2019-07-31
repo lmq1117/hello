@@ -17,4 +17,5 @@ func init() {
 	ns := beego.NewNamespace("/v1")
 	beego.AddNamespace(ns)
 	beego.Router("/name", &controllers.GoodsController{}, "get:Get")
+	beego.Include(&controllers.NewsController{})
 }
