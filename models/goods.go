@@ -10,7 +10,7 @@ import (
 )
 
 type Goods struct {
-	Id    int
+	Id    int64
 	Name  string `orm:"size(128)"`
 	Image string `orm:"size(128)"`
 }
