@@ -1,0 +1,1 @@
+/root/go/src/hello/views/goods/index.tpl
