@@ -32,6 +32,7 @@ func init() {
 		ctx.Output.Body([]byte("hello beego any"))
 	})
 
+	//ALL METHOD
 	//beego.Get(router, beego.FilterFunc)
 	//beego.Post(router, beego.FilterFunc)
 	//beego.Put(router, beego.FilterFunc)
@@ -41,6 +42,12 @@ func init() {
 	//beego.Delete(router, beego.FilterFunc)
 	//beego.Any(router, beego.FilterFunc
 
-	//beego.Router("/name", &controllers.GoodsController{}, "get:Get")
-	//beego.Include(&controllers.NewsController{})
+	//注解路由
+	// 1 cms.go mapping
+	// 2 方法注解
+	// 3 路由include
+	beego.Include(&controllers.CMSController{})
+
+	//RESTful Controller
+
 }
