@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/astaxie/beego"
 	_ "hello/routers"
-	//_ "github.com/go-sql-driver/mysql"
 )
 
 func main() {
