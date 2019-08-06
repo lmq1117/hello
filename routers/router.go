@@ -50,4 +50,7 @@ func init() {
 
 	//RESTful Controller
 
+	//自动路由
+	beego.AutoRouter(&controllers.AdminController{})
+
 }
