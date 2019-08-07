@@ -20,11 +20,11 @@ func init() {
 // Run the migrations
 func (m *Admin_20190806_144652) Up() {
 	// use m.SQL("CREATE TABLE ...") to make schema update
-	m.SQL("CREATE TABLE IF NOT EXISTS admin (" +
-		"`id` BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT," +
-		"`name` varchar(255) NOT NULL DEFAULT '' ," +
-		"`pwd` varchar(128) NOT NULL DEFAULT '' " +
-		")")
+	//m.SQL("CREATE TABLE IF NOT EXISTS admin (" +
+	//	"`id` BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT," +
+	//	"`name` varchar(255) NOT NULL DEFAULT '' ," +
+	//	"`pwd` varchar(128) NOT NULL DEFAULT '' " +
+	//	")")
 }
 
 // Reverse the migrations

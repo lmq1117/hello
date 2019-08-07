@@ -5,16 +5,21 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type Admin struct {
-	Id   int64  `orm:"pk;auto"`
-	Name string `orm:size(10000);default('')`
-	Pwd  string `orm:size(256);default('')`
-	Age  uint
-	Sex  uint `orm:default(0)`
+	Id         int64     `orm:"pk;auto"`
+	Name       string    `orm:size(10000);default('')`
+	Pwd        string    `orm:size(256);default('')`
+	Email      string    `orm:size(256);default('1970-01-01 00:00:00')`
+	LoginCount int       `orm:default(0)`
+	LastTime   time.Time `orm:auto_now;type(datetime)`
+	LastIp     string    `orm:size(256);default('')`
+	Created    time.Time `orm:auto_now;type(datetime)`
+	Updated    time.Time `orm:auto_now_add;type(datetime)`
 }
 
 //func init() {

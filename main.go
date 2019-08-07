@@ -1,14 +1,16 @@
 package main
 
 import (
-	"github.com/Echosong/beego_blog/models"
 	"github.com/astaxie/beego"
+	"hello/models"
 	_ "hello/routers"
 )
 
-func main() {
-
+func init() {
 	models.Init()
+}
+
+func main() {
 
 	//1 解析配置
 	//2 执行用户hookfunc

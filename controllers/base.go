@@ -23,11 +23,11 @@ func (p *baseController) Prepare() {
 	p.o = orm.NewOrm()
 
 	//访问admin 非login模块时，检测检测是否登录了
-	if strings.ToLower(p.controllerName) == "admin" && strings.ToLower(p.actionName) != "login" {
-		if p.GetSession("user") == nil {
-			p.History("未登录", "/admin/login")
-		}
-	}
+	//if strings.ToLower(p.controllerName) == "admin" && strings.ToLower(p.actionName) != "login" {
+	//	if p.GetSession("user") == nil {
+	//		p.History("未登录", "/admin/login")
+	//	}
+	//}
 }
 
 func (p *baseController) History(msg string, url string) {
@@ -37,4 +37,10 @@ func (p *baseController) History(msg string, url string) {
 	} else {
 		p.Redirect(url, 302)
 	}
+}
+
+//获取用户IP地址
+func (p *baseController) getClientIp() string {
+	s := strings.Split(p.Ctx.Request.RemoteAddr, ":")
+	return s[0]
 }
