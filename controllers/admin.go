@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"fmt"
-	"github.com/astaxie/beego/logs"
 	"hello/models"
 	"strings"
 	"time"
@@ -35,7 +34,7 @@ func (c *AdminController) Login() {
 			c.History("登录异常", "")
 		} else {
 			c.SetSession("user", user)
-			c.History("登录成功", c.controllerName+"/index.html")
+			c.TplName = c.controllerName + "/index.html"
 		}
 
 		//c.Ctx.WriteString(name +"----"+ pwd)
@@ -43,6 +42,14 @@ func (c *AdminController) Login() {
 	} else {
 		c.TplName = c.controllerName + "/login.html"
 	}
+}
+
+func (c *AdminController) Logout() {
+	c.DelSession("user")
+	c.TplName = c.controllerName + "/login.html"
+}
+func (c *AdminController) Index() {
+	c.TplName = c.controllerName + "/index.html"
 }
 
 func (c *AdminController) Add() {
@@ -57,7 +64,7 @@ func (c *AdminController) Add() {
 	if err != nil {
 		c.Ctx.WriteString("fail" + err.Error())
 	} else {
-		logs.Debug("##########" + fmt.Sprintf("====%v====\n", adminId) + "###########")
+		//logs.Debug("##########" + fmt.Sprintf("====%v====\n", adminId) + "###########")
 		c.Ctx.WriteString("success!adminId:" + fmt.Sprintf("%v", adminId) + "=====" + string(adminId))
 	}
 }

@@ -23,11 +23,11 @@ func (p *baseController) Prepare() {
 	p.o = orm.NewOrm()
 
 	//访问admin 非login模块时，检测检测是否登录了
-	//if strings.ToLower(p.controllerName) == "admin" && strings.ToLower(p.actionName) != "login" {
-	//	if p.GetSession("user") == nil {
-	//		p.History("未登录", "/admin/login")
-	//	}
-	//}
+	if strings.ToLower(p.controllerName) == "admin" && strings.ToLower(p.actionName) != "login" {
+		if p.GetSession("user") == nil {
+			p.History("未登录", "/admin/login")
+		}
+	}
 }
 
 func (p *baseController) History(msg string, url string) {
