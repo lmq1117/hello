@@ -18,6 +18,7 @@ func Init() {
 	dsn := dbuser + ":" + dbpassword + "@tcp(" + dbhost + ":" + dbport + ")/" + dbname + "?charset=utf8&loc=Asia%2FShanghai"
 	orm.RegisterDataBase("default", "mysql", dsn)
 	orm.RegisterModel(new(Users), new(Admin))
+	orm.Debug = true
 	//orm.RunSyncdb("default", true, true)
 
 	//注册数据驱动 mysql sqlite3 postgres 是beego默认注册过的 所以无需设置
